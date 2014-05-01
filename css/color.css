@@ -1,0 +1,25 @@
+﻿header, button, .button {
+	background-color: #BB2222;
+}
+ #slider-swiper {
+	background-color: #fffff;
+ }
+.st-menu .selected {
+	border-color: #BB2222;
+}
+a:link {
+	color: #BB2222;
+}
+
+.header_top {
+	color: #000 !important;
+}
+
+.body_text {
+	padding-left: 5px !important;
+	color: #fff !important;
+}
+
+p {
+	color: #fff !important;
+}

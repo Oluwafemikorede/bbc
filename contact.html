@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script src="js/jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        console.log('kore');
+        var apiUrl = "http://localhost/bbc/api/categories/0";
+
+        if (localStorage.getItem("ptn_categories") === null) 
+        {
+           console.log('empty');
+
+            $.get(apiUrl, function( data ) 
+            {
+                window.localStorage.setItem("ptn_categories",JSON.stringify(data));
+            }, "json");
+        } else {
+            console.log('not empty');
+        }
+       
+        var datum =  window.localStorage.getItem("ptn_categories");
+        var datum2 =  JSON.parse(datum);
+        $.each(datum2, function( key, value ) {
+        $("#ptn_home").after("<li><a class='ico gallery' id='"+value.slug+"' href='javascript:;'>"+value.name+"</a></li>");
+            });
+      
+
+    });
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+  	<title>PrimeTimesNG News App</title>
+    <link rel="stylesheet" href="css/normalize.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/main.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/color.css" type="text/css" media="screen">
+	<script src="js/lib/jquery-1.10.2.min.js"></script>
+	<script src="js/lib/classie.js"></script>
+	<script src="js/lib/klass.min.js"></script>
+	<script src="js/lib/code.photoswipe.jquery-3.0.5.min.js"></script>
+	<script src="js/lib/idangerous.swiper-2.2.min.js"></script>
+	<script src="js/lib/idangerous.swiper.scrollbar-2.1.js"></script>
+	<script src="js/custom.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+  	<title>PrimeTimesNG News App</title>
+    <link rel="stylesheet" href="css/normalize.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/main.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/color.css" type="text/css" media="screen">
+	<script src="js/lib/jquery-1.10.2.min.js"></script>
+	<script src="js/lib/classie.js"></script>
+	<script src="js/lib/klass.min.js"></script>
+	<script src="js/lib/code.photoswipe.jquery-3.0.5.min.js"></script>
+	<script src="js/lib/idangerous.swiper-2.2.min.js"></script>
+	<script src="js/lib/idangerous.swiper.scrollbar-2.1.js"></script>
+	<script src="js/custom.js"></script>
+</head>
+<body>
+	<div id="st-container" class="st-container">
+		<nav class="st-menu st-effect-4">
+			<ul>
+				<li><h1>PrimeTimesNG</h1></li>
+				<li><a class="ico home selected" id="ptn_home" href="index.html">Home</a></li>
+               
+				<li><a class="ico contact" href="contact.html">Send Us Message</a></li>
+				<li>
+					<form id="searchform">
+						<input class="ico search" id="searchinput" type="text" placeholder="SEARCH"/>
+					</form>
+				</li>
+			</ul>
+		</nav>
+		
+		<div class="st-pusher">
+			<div class="st-content">
+				<div class="st-content-inner">
+					<!-- Top Navigation -->
+					<header>
+						<div id="st-trigger-effects">
+							<button data-effect="st-effect-4" id="menu-bars"></button>
+						</div>
+						<h1>PrimeTimesNG</h1>
+						<a id="signin-button" href="signin.html">SIGN IN</a>
+					</header>
+					
+					<div class="content">
+						<fieldset>
+							<legend align="center">SEND REPORT</legend>
+							<form id="signinform">
+								<input type="text" placeholder="NAME"/>
+                                <input type="tel" placeholder="PHONE"/>
+								<input type="email" placeholder="E-MAIL"/>
+								<textarea placeholder="MESSAGE" rows="5"></textarea>
+                                <input type="file" placeholder="Upload"/>
+								<button>Send Message</button>
+                                <a href="" class="button">Terms of use</a>
+                                <a class="button" target="_blank" href="mailto:akinsholasamuel@gmail.com">Submit Feedback</a>
+							</form>
+						</fieldset>
+					</div>  
+				</div><!-- /st-content-inner -->
+			</div><!-- /st-content -->
+		</div><!-- /st-pusher -->
+	</div><!-- /st-container -->
+
+	<script src="js/lib/sidebarEffects.js"></script>
+</body>
+</html>
